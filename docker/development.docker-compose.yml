@@ -4,6 +4,7 @@ services:
     image: aspnet_server_image_dev:latest
     environment:
       - ASPNETCORE_URLS=http://+:7777
+      - ASPNETCORE_ENVIRONMENT=development
     build:
       context: ..
       dockerfile: docker/dockerfiles/Development.Server.Dockerfile

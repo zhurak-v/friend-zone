@@ -26,7 +26,10 @@ public class TelegramBotApi
             await this._messageHandler.HandleMessage(sender);
         };
 
-        while (Console.ReadKey(true).Key != ConsoleKey.Escape) ;
-        this._cts.Cancel();
+        try
+        {
+            await Task.Delay(Timeout.Infinite, this._cts.Token);
+        }
+        catch (TaskCanceledException) { }
     }
 }

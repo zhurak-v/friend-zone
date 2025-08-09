@@ -13,5 +13,6 @@ if [ ! -f "$ENTRY_DLL" ]; then
 fi
 
 export ASPNETCORE_ENVIRONMENT=production
+set ASPNETCORE_ENVIRONMENT=production
 
 dotnet "$ENTRY_DLL"

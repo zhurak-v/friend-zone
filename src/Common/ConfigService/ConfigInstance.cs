@@ -7,15 +7,7 @@ public static class Config
 
     static Config()
     {
-        var isProduction = IsProduction();
-        if (isProduction)
-        {
-            _instance = new ConfigService($"configs/{env}.env");
-        }
-        else
-        {
-            _instance = new ConfigService($"../../configs/{env}.env");
-        }
+        _instance = new ConfigService($"configs/{env}.env");
     }
 
     public static T GetOrThrow<T>(string key)

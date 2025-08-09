@@ -45,7 +45,7 @@ public class TelegramMessageHandler
         catch (Exception ex)
         {
             Console.WriteLine($"Помилка при генерації відповіді: {ex.Message}");
-            await _bot.SendMessage(
+            await this._bot.SendMessage(
                 chatId: msg.Chat.Id,
                 text: "Вибач, сталася помилка.",
                 cancellationToken: _cancellationToken
@@ -57,10 +57,10 @@ public class TelegramMessageHandler
     {
         PromptOut prompt = await this._promptPort.GeneratePrompt("Very shortly!. Tell me what you are, a friendzone bot, and what you can do.");
 
-        await _bot.SendMessage(
+        await this._bot.SendMessage(
             chatId: msg.Chat.Id,
             text: prompt.response,
-            cancellationToken: _cancellationToken
+            cancellationToken: this._cancellationToken
         );
     }
 
@@ -68,7 +68,7 @@ public class TelegramMessageHandler
     {
         PromptOut prompt = await this._promptPort.GeneratePrompt(msg.Text!);
 
-        await _bot.SendMessage(
+        await this._bot.SendMessage(
             chatId: msg.Chat.Id,
             text: prompt.response,
             cancellationToken: _cancellationToken

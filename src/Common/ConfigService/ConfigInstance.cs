@@ -7,7 +7,7 @@ public static class Config
 
     static Config()
     {
-        _instance = new ConfigService($"configs/{env}.env");
+        _instance = new ConfigService($"configs/.{env}.env");
     }
 
     public static T GetOrThrow<T>(string key)
